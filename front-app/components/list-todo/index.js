@@ -9,11 +9,11 @@ import TodoService from "../../services/todo-service";
     constructor(props){
         super(props);
         this.state = {
-            todos: null,
+            todos: [],
         }
     }
 
-    componentWillMount(){
+    componentDidMount(){
 
         const todoService = new TodoService();
         todoService.getTodos((res)=>{
@@ -24,9 +24,8 @@ import TodoService from "../../services/todo-service";
     }
 
     render() {
-        console.log('todoooooooooos', this.state.todos)
         return (
-          <Table />
+          <Table theadData={['#','title','start at']} tbodyData={this.state.todos}/>
         );
     }
 }
