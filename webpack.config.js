@@ -28,8 +28,11 @@ Encore
     // will create web/build/app.js and web/build/app.css
     .addEntry('js/admin', scriptsLimitless)
     .addEntry('js/login', [ './web/assets/js/plugins/forms/styling/uniform.min.js', './web/assets/js/core/app.js', './web/assets/js/pages/login.js',])
+    .addEntry('js/dataTable', [ './web/assets/js/plugins/tables/datatables/datatables.min.js', './web/assets/js/plugins/forms/selects/select2.min.js', './web/assets/js/core/app.js', './web/assets/js/pages/datatables_sorting.js',])
 
+    //React Entry
     .addEntry('js/pages/index', './front-app/index.js')
+    .addEntry('js/pages/todo_page', './front-app/pages/todoPage.js')
 
     .addStyleEntry('css/admin', stylesLimitless)
 
