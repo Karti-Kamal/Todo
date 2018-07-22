@@ -1,0 +1,31 @@
+
+AppBundle\Entity\User:
+    administrator:
+        firstName: admin
+        lastName: admin
+        address: '1667  Bates Brothers Road Columbus 43215'
+        username: admin
+        email: admin@todo.ma
+        password: '\$2y\$13\$X8i.jsXKdDib97tfshryNuTSLLWnYT8tnWY/vM7sOjtDBDdo7SYuO' # f%/R4Uk#](wUvM'V
+        enabled: true
+        roles: ['ROLE_SUPER_ADMIN']
+    user:
+        firstName: user
+        lastName: user
+        address: '1667  Bates Brothers Road Columbus 43215'
+        username: user
+        email: user@todo.ma
+        password: '\$2y\$13\$X8i.jsXKdDib97tfshryNuTSLLWnYT8tnWY/vM7sOjtDBDdo7SYuO' # f%/R4Uk#](wUvM'V
+        enabled: true
+        roles: ['ROLE_USER']
+
+AppBundle\Entity\Todo:
+    todo_{1..5}:
+        title: 'TODO_<current()>'
+        startsAt: <dateTime('+4 years')>
+        user: '@administrator'
+        projects: [ '@project_<current()>','@project_6','@project_7']
+
+AppBundle\Entity\Project:
+    project_{1..7}:
+        name: 'Project_<current()>'

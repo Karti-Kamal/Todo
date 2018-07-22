@@ -5,11 +5,18 @@ namespace AppBundle\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
+use ApiPlatform\Core\Annotation\ApiResource;
+use Symfony\Component\Serializer\Annotation\Groups;
 /**
  * Todo
  *
  * @ORM\Table(name="todo")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\TodoRepository")
+ * @ApiResource(
+ *  attributes ={
+ *     "normalization_context"={"groups"={"todos"}},
+ *     }
+ * )
  */
 class Todo
 {
@@ -26,6 +33,7 @@ class Todo
      * @var string
      *
      * @ORM\Column(name="title", type="string", length=255)
+     * @Groups({"todos"})
      */
     private $title;
 
@@ -33,6 +41,7 @@ class Todo
      * @var \DateTime
      *
      * @ORM\Column(name="startsAt", type="datetime")
+     * @Groups({"todos"})
      */
     private $startsAt;
 
@@ -44,7 +53,11 @@ class Todo
 
     /**
      * @var Project [] | ArrayCollection
-     * @ORM\ManyToMany(targetEntity="Project", inversedBy="todos")
+     * @ORM\ManyToMany(targetEntity="Project")
+     * @ORM\JoinTable(name="project_todo",
+     *      joinColumns={@ORM\JoinColumn(name="todo_id", referencedColumnName="id")},
+     *      inverseJoinColumns={@ORM\JoinColumn(name="project_id", referencedColumnName="id")}
+     *      )
      */
     private $projects;
 

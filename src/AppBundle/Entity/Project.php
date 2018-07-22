@@ -29,22 +29,6 @@ class Project
      */
     private $name;
 
-
-    /**
-     * @var Todo [] | ArrayCollection
-     * @ORM\ManyToMany(targetEntity="Todo", mappedBy="projects")
-     */
-    private $todos;
-
-    /**
-     * Project constructor.
-     */
-    public function __construct()
-    {
-        $this->todos = new ArrayCollection();
-    }
-
-
     /**
      * Get id.
      *
@@ -77,34 +61,6 @@ class Project
     public function getName()
     {
         return $this->name;
-    }
-
-
-    /**
-     * @param Todo[]|ArrayCollection $todos
-     */
-    public function setTodos($todos)
-    {
-        $this->todos = $todos;
-    }
-
-    /**
-     * @param Todo $todo
-     * @return $this
-     */
-    public function addTodo(Todo $todo)
-    {
-        $this->todos->add($todo);
-        return $this;
-    }
-
-    /**
-     * @param Todo $todo
-     * @return bool
-     */
-    public function removeTodo(Todo $todo)
-    {
-        return  $this->todos->removeElement($todo);
     }
 
 }
