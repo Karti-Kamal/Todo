@@ -1,0 +1,13 @@
+{% extends "base.html.twig" %}
+
+
+{% block classBody %}class="login-container"{% endblock %}
+
+{% block contentWrapper %}
+        {% block fos_user_content %}
+        {% endblock fos_user_content %}
+
+{% endblock %}
+{% block body_attributes %} class="layout-boxed login-container" {% endblock %}
+
+{% block header_content %}{% endblock %}

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>{% block title %}Welcome!{% endblock %}</title>
+    {% block stylesheets %}{% endblock %}
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+
+    <link rel="stylesheet" href="{{ asset('build/css/admin.css') }}" />
+</head>
+<body  {% block classBody %}class=""{% endblock %}>
+{% include 'layout/navbar.html.twig' %}
+
+{% block body %}
+    <div class="page-container">
+        {% block container %}
+    <!-- Page content -->
+        <div class="page-content">
+            {% block content %}
+        <!-- Main content -->
+            <div class="content-wrapper">
+                {% block contentWrapper %}
+
+                {% endblock %}
+            </div>
+            {% endblock %}
+        </div>
+        {% endblock %}
+    </div>
+{% endblock %}
+
+{% block footer %}
+    <div class="footer text-muted text-center">
+        &copy; 2015. <a href="#">Limitless Web App Kit</a> by <a href="http://themeforest.net/user/Kopyov" target="_blank">Eugene Kopyov</a>
+    </div>
+{% endblock %}
+
+{% block javascripts %}{% endblock %}
+<script src="{{ asset('build/js/admin.js') }}"></script>
+<script src="{{ asset('build/js/pages/index.js') }}"></script>
+
+</body>
+</html>

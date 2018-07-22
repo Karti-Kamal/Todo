@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+
+{% endblock %}
+{% block classBody %}class="login-container"{% endblock %}
+
+{% block contentWrapper %}
+
+    <div id="App">
+
+    </div>
+
+
+    {% block javascripts %}
+        <script src="{{ asset('build/js/login.js') }}"></script>
+    {% endblock %}
+{% endblock %}
+
+
